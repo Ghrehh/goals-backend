@@ -1,0 +1,15 @@
+version: '3'
+services:
+  service: &default
+    image: ghrehh/goal-backend
+    build: .
+    command: bundle exec rails s
+    environment:
+      - DATABASE_URL=postgresql://postgres:@postgres/postgres?sslmode=disable
+    ports:
+      - "0.0.0.0:3000:3000"
+    depends_on:
+      - postgres
+
+  postgres: &postgres
+    image: postgres:9.4-alpine
