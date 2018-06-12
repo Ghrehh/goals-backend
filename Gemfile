@@ -11,7 +11,9 @@ gem 'puma', '~> 3.7'
 gem 'rack-cors'
 gem 'rails', '~> 5.1.6'
 
-group :development, :test do
+group :test do
+  gem 'rspec', '~> 3.7.0', require: false
+  gem 'rubocop', '~> 0.57.2', require: false
 end
 
 group :development do
