@@ -1,0 +1,14 @@
+sudo: required
+
+language: ruby
+
+services:
+  - docker
+
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker build -t goal-backend .;
+    docker login -u "$HEROKU_USERNAME" -p "$HEROKU_PASSWORD" registry.heroku.com;
+    docker tag goal-backend registry.heroku.com/goal-backend/web;
+    docker push registry.heroku.com/goal-backend/web;
+    fi
