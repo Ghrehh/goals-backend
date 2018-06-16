@@ -13,6 +13,7 @@ gem 'rack-cors'
 gem 'rails', '~> 5.1.6'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.7'
   gem "byebug", "~> 10.0"
 end
 

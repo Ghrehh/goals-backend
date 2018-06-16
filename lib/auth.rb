@@ -9,7 +9,7 @@ module Auth
     nil
   end
 
-  def self.authorized_user_for(user_id, remember_token)
+  def self.authorized_user_for(user_id:, remember_token:)
     user = User.find(user_id)
     return user if user&.valid_remember_token?(remember_token)
     nil

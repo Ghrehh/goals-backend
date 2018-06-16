@@ -5,6 +5,9 @@ Fields::UserField = GraphQL::Field.define do
   argument :remember_token, !types.String
 
   resolve ->(obj, args, ctx) {
-    Auth.authorized_user_for(args[:id], args[:remember_token])
+    Auth.authorized_user_for(
+      user_id: args[:id],
+      remember_token:  args[:remember_token]
+    )
   }
 end
