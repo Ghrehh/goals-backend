@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class User < ApplicationRecord
   has_secure_password
   validates :name, presence: true, uniqueness: true
@@ -23,8 +25,11 @@ class User < ApplicationRecord
   private
 
   def digest(string)
-    cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
-                                                  BCrypt::Engine.cost
-    BCrypt::Password.create(string, cost: cost)
+    BCrypt::Password.create(string, cost: digest_cost)
+  end
+
+  def digest_cost
+    return BCrypt::Engine.cost unless ActiveModel::SecurePassword.min_cost
+    BCrypt::Engine::MIN_COST
   end
 end

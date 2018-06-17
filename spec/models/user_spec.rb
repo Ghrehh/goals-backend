@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 def digest(string)
   BCrypt::Password.create(string, cost: BCrypt::Engine::MIN_COST)
 end
 
-RSpec.describe User, :type => :model do
+RSpec.describe User, type: :model do
   let(:user) { User.create(name: 'name', password: 'password') }
 
   describe '#valid_remember_token?' do
@@ -100,7 +102,7 @@ RSpec.describe User, :type => :model do
     end
 
     before do
-      user.update(remember_digest: 'foobar') 
+      user.update(remember_digest: 'foobar')
       clear_remember_token
     end
 

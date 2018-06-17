@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe Auth do
@@ -16,7 +18,7 @@ RSpec.describe Auth do
     before do
       allow(User).to receive(:find_by).with(name: name) { user }
       allow(user).to receive(:valid_password?).with(password) { true }
-    end 
+    end
 
     context 'with a valid name' do
       context 'and a valid password' do
@@ -28,7 +30,7 @@ RSpec.describe Auth do
       context 'and an invalid password' do
         before do
           allow(user).to receive(:valid_password?).with(password) { false }
-        end 
+        end
 
         it 'returns nil' do
           expect(new_session).to be(nil)

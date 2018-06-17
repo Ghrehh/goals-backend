@@ -1,12 +1,16 @@
-class Mutations::CreateSession < GraphQL::Schema::Mutation
-  null false
+# frozen_string_literal: true
 
-  argument :name, String, required: true
-  argument :password, String, required: true
+module Mutations
+  class CreateSession < GraphQL::Schema::Mutation
+    null false
 
-  field :token, String, null: true
+    argument :name, String, required: true
+    argument :password, String, required: true
 
-  def resolve(name:, password:)
-    { token: Auth.new_session(name: name, password: password) }
+    field :token, String, null: true
+
+    def resolve(name:, password:)
+      { token: Auth.new_session(name: name, password: password) }
+    end
   end
 end

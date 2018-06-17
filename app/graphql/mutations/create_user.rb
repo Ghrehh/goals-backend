@@ -1,19 +1,23 @@
-class Mutations::CreateUser < GraphQL::Schema::Mutation
-  null false
+# frozen_string_literal: true
 
-  argument :name, String, required: true
-  argument :password, String, required: true
-  argument :password_confirmation, String, required: true
+module Mutations
+  class CreateUser < GraphQL::Schema::Mutation
+    null false
 
-  field :user, Types::UserType, null: true
+    argument :name, String, required: true
+    argument :password, String, required: true
+    argument :password_confirmation, String, required: true
 
-  def resolve(name:, password:, password_confirmation:)
-    user = User.create(
-      name: name,
-      password: password,
-      password_confirmation: password_confirmation
-    )
+    field :user, Types::UserType, null: true
 
-    { user: user.valid? ? user : nil }
+    def resolve(name:, password:, password_confirmation:)
+      user = User.create(
+        name: name,
+        password: password,
+        password_confirmation: password_confirmation
+      )
+
+      { user: user.valid? ? user : nil }
+    end
   end
 end

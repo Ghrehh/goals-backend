@@ -11,6 +11,7 @@ before_install:
 script:
   - docker-compose build service
   - docker-compose run --rm service bundle exec rails db:migrate
+  - docker-compose run --rm service bundle exec rubocop
   - docker-compose run --rm service bundle exec rspec
 
 after_success:
