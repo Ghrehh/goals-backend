@@ -3,6 +3,7 @@ services:
   service: &default
     image: ghrehh/goal-backend
     build: .
+    entrypoint: dockerize -wait tcp://postgres:5432
     command: bundle exec rails s
     volumes:
       - ./app:/usr/src/goals-backend/app

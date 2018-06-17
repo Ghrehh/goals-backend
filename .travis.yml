@@ -6,12 +6,11 @@ services:
   - docker
 
 before_install:
-  - docker-compose build service
-  - docker-compose run --rm service bundle exec rails db:migrate
-  - docker-compose run --rm service bundle exec rails db:migrate
   - echo -e "machine api.heroku.com\n  login $HEROKU_USERNAME\n  password $HEROKU_PASSWORD\nmachine git.heroku.com\n  login $HEROKU_USERNAME\n  password $HEROKU_PASSWORD" >> ~/.netrc
 
 script:
+  - docker-compose build service
+  - docker-compose run --rm service bundle exec rails db:migrate
   - docker-compose run --rm service bundle exec rspec
 
 after_success:
