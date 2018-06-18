@@ -3,6 +3,7 @@
 class User < ApplicationRecord
   has_secure_password
   validates :name, presence: true, uniqueness: true
+  has_many :goals
 
   def valid_remember_token?(remember_token)
     BCrypt::Password.new(remember_digest).is_password?(remember_token)

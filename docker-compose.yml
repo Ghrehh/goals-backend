@@ -6,10 +6,7 @@ services:
     entrypoint: dockerize -wait tcp://postgres:5432
     command: bundle exec rails s
     volumes:
-      - ./app:/usr/src/goals-backend/app
-      - ./config:/usr/src/goals-backend/config
-      - ./lib:/usr/src/goals-backend/lib
-      - ./spec:/usr/src/goals-backend/spec
+      - ./:/usr/src/goals-backend/
     environment:
       - DATABASE_URL=postgresql://postgres:@postgres/postgres?sslmode=disable
     ports:

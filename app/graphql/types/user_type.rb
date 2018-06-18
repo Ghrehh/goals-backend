@@ -5,6 +5,7 @@ module Types
     graphql_name 'User'
 
     field :name, String, null: false
-    field :id, Integer, null: false
+    field :id, String, null: false
+    field :goals, [Types::GoalType], null: true
   end
 end

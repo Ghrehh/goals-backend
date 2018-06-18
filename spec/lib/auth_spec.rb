@@ -23,7 +23,10 @@ RSpec.describe Auth do
     context 'with a valid name' do
       context 'and a valid password' do
         it 'returns a new remember_token' do
-          expect(new_session).to be(remember_token)
+          expect(new_session).to eq(
+            token: remember_token,
+            user: user
+          )
         end
       end
 
@@ -33,7 +36,10 @@ RSpec.describe Auth do
         end
 
         it 'returns nil' do
-          expect(new_session).to be(nil)
+          expect(new_session).to eq(
+            token: nil,
+            user: nil
+          )
         end
       end
     end
@@ -43,8 +49,11 @@ RSpec.describe Auth do
         allow(User).to receive(:find_by).with(name: name) { nil }
       end
 
-      it 'returns a new remember_token' do
-        expect(new_session).to be(nil)
+      it 'returns nil' do
+        expect(new_session).to eq(
+          token: nil,
+          user: nil
+        )
       end
     end
   end

@@ -8,9 +8,10 @@ module Mutations
     argument :password, String, required: true
 
     field :token, String, null: true
+    field :user, Types::UserType, null: true
 
     def resolve(name:, password:)
-      { token: Auth.new_session(name: name, password: password) }
+      Auth.new_session(name: name, password: password)
     end
   end
 end

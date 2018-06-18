@@ -3,8 +3,12 @@
 module Auth
   def self.new_session(name:, password:)
     user = User.find_by(name: name)
+    is_valid = user&.valid_password?(password)
 
-    user&.valid_password?(password) ? user.generate_remember_token : nil
+    {
+      token: is_valid ? user.generate_remember_token : nil,
+      user: is_valid ? user : nil
+    }
   end
 
   def self.authorized_user_for(user_id:, remember_token:)
