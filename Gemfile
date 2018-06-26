@@ -8,7 +8,7 @@ git_source(:github) do |repo_name|
 end
 
 gem 'bcrypt', '~> 3.1.12'
-gem 'graphql', '~> 1.8.3'
+gem 'graphql', '~> 1.8'
 gem 'pg', '~> 1.0.0'
 gem 'puma', '~> 3.7'
 gem 'rack-cors'

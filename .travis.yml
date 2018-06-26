@@ -1,7 +1,5 @@
 sudo: required
 
-language: ruby
-
 services:
   - docker
 
@@ -12,6 +10,7 @@ script:
   - docker-compose build service
   - docker-compose run --rm service bundle exec rails db:migrate
   - docker-compose run --rm service bundle exec rspec
+  - rubocop
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
