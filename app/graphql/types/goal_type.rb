@@ -6,6 +6,6 @@ module Types
 
     field :name, String, null: false
     field :id, Integer, null: false
-    field :due_date, String, null: false
+    field :due_date, String, null: true
   end
 end
