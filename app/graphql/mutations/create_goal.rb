@@ -12,7 +12,7 @@ module Mutations
     def resolve(auth:, goal_name:)
       goal = Auth.authorized_user_for(
         **auth.to_h
-      )&.goals.create(name: goal_name)
+      )&.goals&.create(name: goal_name)
 
       { goal: goal }
     end

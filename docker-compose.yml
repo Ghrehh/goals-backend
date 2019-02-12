@@ -6,7 +6,11 @@ services:
     entrypoint: dockerize -wait tcp://postgres:5432
     command: bundle exec rails s
     volumes:
-      - ./:/usr/src/goals-backend/
+      - ./app:/usr/src/score-api/app
+      - ./lib:/usr/src/score-api/lib
+      - ./db:/usr/src/score-api/db
+      - ./spec:/usr/src/score-api/spec
+      - ./config:/usr/src/score-api/config
     environment:
       - DATABASE_URL=postgresql://postgres:@postgres/postgres?sslmode=disable
     ports:
