@@ -7,7 +7,6 @@ module Types
     field :name, String, null: false
     field :id, Integer, null: false
     field :due_date, String, null: true
-    field :latest_completion, Types::CompletionType, null: true
     field :completions, [Types::CompletionType], null: false
   end
 end
