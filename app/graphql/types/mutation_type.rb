@@ -5,5 +5,6 @@ module Types
     field :createSession, mutation: Mutations::CreateSession
     field :createUser, mutation: Mutations::CreateUser
     field :createGoal, mutation: Mutations::CreateGoal
+    field :createCompletion, mutation: Mutations::CreateCompletion
   end
 end

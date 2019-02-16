@@ -2,5 +2,6 @@
 
 class Goal < ApplicationRecord
   belongs_to :user
+  has_many :completions
   validates :name, presence: true
 end
