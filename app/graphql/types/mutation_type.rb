@@ -6,5 +6,6 @@ module Types
     field :createUser, mutation: Mutations::CreateUser
     field :createGoal, mutation: Mutations::CreateGoal
     field :createCompletion, mutation: Mutations::CreateCompletion
+    field :deleteCompletion, mutation: Mutations::DeleteCompletion
   end
 end
