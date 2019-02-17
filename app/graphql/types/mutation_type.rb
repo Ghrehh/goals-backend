@@ -7,5 +7,6 @@ module Types
     field :createGoal, mutation: Mutations::CreateGoal
     field :createCompletion, mutation: Mutations::CreateCompletion
     field :deleteCompletion, mutation: Mutations::DeleteCompletion
+    field :deleteGoal, mutation: Mutations::DeleteGoal
   end
 end

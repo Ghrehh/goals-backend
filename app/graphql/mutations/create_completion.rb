@@ -13,7 +13,7 @@ module Mutations
     def resolve(auth:, goal_id:, completed_at:)
       user = Auth.authorized_user_for(**auth.to_h)
       goal = user&.goals&.find(goal_id)
-      completion = goal&.completions&.create(completed_at: completed_at)
+      goal&.completions&.create(completed_at: completed_at)
 
       { goals: user&.goals }
     end
