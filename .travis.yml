@@ -5,12 +5,13 @@ services:
 
 before_install:
   - echo -e "machine api.heroku.com\n  login $HEROKU_USERNAME\n  password $HEROKU_PASSWORD\nmachine git.heroku.com\n  login $HEROKU_USERNAME\n  password $HEROKU_PASSWORD" >> ~/.netrc
+  - gem install bundler -v 2.0.1
+
 
 script:
   - docker-compose build service
   - docker-compose run --rm service bundle exec rails db:migrate
   - docker-compose run --rm service bundle exec rspec
-  - rubocop
 
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then

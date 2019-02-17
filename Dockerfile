@@ -9,7 +9,7 @@ RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSI
 COPY ./Gemfile /usr/src/goals-backend/Gemfile
 COPY ./Gemfile.lock /usr/src/goals-backend/Gemfile.lock
 WORKDIR /usr/src/goals-backend
-RUN gem install bundler -v 2
+RUN gem install bundler -v 2.0.1
 RUN bundle install
 
 COPY ./ /usr/src/goals-backend/
