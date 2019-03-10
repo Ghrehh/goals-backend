@@ -8,5 +8,6 @@ module Types
     field :id, Integer, null: false
     field :due_date, String, null: true
     field :completions, [Types::CompletionType], null: false
+    field :notes, [Types::NoteType], null: false
   end
 end

@@ -5,5 +5,6 @@ module Types
     field :user, field: Fields::UserField
     field :goals, field: Fields::GoalsField
     field :goal, field: Fields::GoalField
+    field :notes, field: Fields::NotesField
   end
 end
