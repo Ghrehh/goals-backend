@@ -8,5 +8,6 @@ module Types
     field :createCompletion, mutation: Mutations::CreateCompletion
     field :deleteCompletion, mutation: Mutations::DeleteCompletion
     field :deleteGoal, mutation: Mutations::DeleteGoal
+    field :createNote, mutation: Mutations::CreateNote
   end
 end
