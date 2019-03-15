@@ -12,6 +12,7 @@ module Fields
         &.goals
         &.find(args[:goalId])
         &.notes
+        &.order(created_at: :desc)
     }
   end
 end

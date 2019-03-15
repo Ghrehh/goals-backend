@@ -7,7 +7,9 @@ module Fields
     argument :auth, Types::AuthInput
 
     resolve ->(obj, args, ctx) {
-      Auth.authorized_user_for(**args[:auth].to_h)&.goals
+      Auth.authorized_user_for(**args[:auth].to_h)
+        &.goals
+        &.order(created_at: :desc)
     }
   end
 end
