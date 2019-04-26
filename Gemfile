@@ -12,11 +12,11 @@ gem 'graphql', '~> 1.8'
 gem 'pg', '~> 1.0.0'
 gem 'puma', '~> 3.7'
 gem 'rack-cors'
-gem 'rails', '~> 5.1.6'
+gem 'rails', '~> 5.2.3'
 gem 'newrelic_rpm', '~> 6.2.0'
 
 group :development, :test do
-  gem 'rspec-rails', '~> 3.7'
+  gem 'rspec-rails', '~> 3.8.2'
   gem "byebug", "~> 10.0"
 end
 
