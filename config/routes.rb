@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
   post "/gql", to: "graphql#execute"
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resource :health_check, only: [:show]
 end

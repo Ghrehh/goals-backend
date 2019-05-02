@@ -4,7 +4,7 @@ services:
     image: ghrehh/goal-backend
     build: .
     entrypoint: dockerize -wait tcp://postgres:5432
-    command: bundle exec rails s
+    command: bundle exec rails s -b 0.0.0.0
     volumes:
       - ./app:/usr/src/score-api/app
       - ./lib:/usr/src/score-api/lib
